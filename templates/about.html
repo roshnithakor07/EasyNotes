@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+   
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me</title>
+    <style>
+                #resume {
+            float: left;
+            background: url('http://leta.artrow.net/images/background.jpg');
+            color: #333333;
+            font: 14px/20px 'Open Sans',Helvetica,Arial,sans-serif;
+            border-radius: 20px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            position: relative;
+            width: 100%;
+            z-index: 0;
+        }
+
+            #resume .fill-blue {
+                background: none repeat scroll 0 0 #2d7fb9;
+                color: #FFFFFF;
+                font-size: 30px;
+                font-weight: 600;
+                height: 45px;
+                line-height: 45px;
+                padding-left: 35px;
+                text-transform: uppercase;
+            }
+
+            #resume .substrate {
+                background: none repeat scroll 0 0 #FFFFFF;
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+                display: block;
+                margin-bottom: 30px;
+                padding: 15px 20px;
+                position: relative;
+            }
+
+                #resume .substrate:before {
+                    bottom: 15px;
+                    box-shadow: 0 15px 10px rgba(0, 0, 0, 0.3);
+                    content: "";
+                    height: 20%;
+                    left: auto;
+                    position: absolute;
+                    right: 5px;
+                    transform: rotate(3deg);
+                    width: 80%;
+                    z-index: -1;
+                    -webkit-transform: rotate(3deg);
+                    -moz-transform: rotate(3deg);
+                    -o-transform: rotate(3deg);
+                    transform: rotate(3deg);
+                    -ms-transform: rotate(3deg);
+                }
+
+            #resume .left-column {
+                float: left;
+                margin: 20px 0 0 20px;
+                padding: 15px;
+                width: 270px;
+            }
+
+                #resume .left-column .substrate {
+                    width: 230px;
+                }
+
+            #resume .right-column {
+                float: right;
+                margin: 20px 20px 0 0;
+                padding: 15px;
+                width: 490px;
+            }
+
+            #resume .substrate h2 {
+                margin: 0 0 30px;
+            }
+
+            #resume h2 {
+                font: 400 28px/28px 'Open Sans',Helvetica,Arial,sans-serif;
+                margin-bottom: 10px;
+            }
+
+
+            #resume .right-column .substrate {
+                padding-left: 30px;
+                width: 440px;
+            }
+
+
+
+            #resume .gradient-blue {
+                background: linear-gradient(to bottom, #479CD7 0%, #2C7EB8 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
+            }
+
+            #resume .substrate h2 {
+                margin: 0 0 30px;
+                font: 400 28px/28px 'Open Sans',Helvetica,Arial,sans-serif;
+                margin-bottom: 10px;
+            }
+
+            #resume .font-blue h2, .font-yellow h2 {
+                color: #FFFFFF;
+                text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+            }
+
+            #resume .font-blue h3, .font-blue h4, .font-blue h5, .font-blue h6 {
+                color: #D4EDFF;
+            }
+
+            #resume h3 {
+                font-size: 20px;
+                font-weight: 400;
+                margin-bottom: 5px;
+            }
+
+            #resume h4 {
+                color: #808080;
+                font-size: 16px;
+                font-weight: 400;
+                margin-bottom: 10px;
+            }
+
+
+
+            #resume .p {
+                margin-bottom: 20px;
+                color: #A9DCFF;
+            }
+
+            #resume .main-info-list {
+                list-style: none;
+                margin: 20px 0 20px;
+                padding: 0;
+            }
+
+                #resume .main-info-list li {
+                    margin-bottom: 3px;
+                    color: #333;
+                    font-size: 14px;
+                    vertical-align: baseline;
+                    padding: 0;
+                    -webkit-margin-before: 1em;
+                    -webkit-margin-after: 1em;
+                    -webkit-margin-start: 0px;
+                    -webkit-margin-end: 0px;
+                }
+
+                    #resume .main-info-list li span {
+                        width: 150px;
+                        color: #666;
+                        padding-left: 20px;
+                    }
+
+            #resume .info-period {
+                padding-left: 100px;
+            }
+
+            #resume .time-period-right-blue {
+                margin-left: 10px;
+                padding: 2px 10px;
+                border-radius: 3px;
+                color: #fff;
+                font-size: 14px;
+            }
+
+
+            #resume .time-period-right-blue {
+                background: #2d7fb9;
+            }
+
+            #resume .left-blue {
+                margin: 0 0 20px 10px;
+                padding-left: 25px;
+                border-left: 10px solid #2d7fb9;
+            }
+
+            #resume .time-period-left-blue {
+                position: relative;
+                float: left;
+                width: 90px;
+                font-weight: 600;
+                color: #2d7fb9;
+            }
+
+                #resume .time-period-left-blue:before {
+                    position: absolute;
+                    top: -3px;
+                    left: -44px;
+                    width: 16px;
+                    height: 16px;
+                    border: 6px solid #2d7fb9;
+                    border-radius: 15px;
+                    background: #fff;
+                    content: '';
+                }
+                #letter{
+     font-size: 30px;
+     color: rgba(118, 206, 133, 0.753);
+}
+
+
+            #resume .skills {
+                margin: 10px 0 20px;
+                list-style: none;
+                padding: 0;
+            }
+
+                #resume .skills li {
+                    margin-bottom: 3px;
+                    height: 40px;
+                }
+
+            #resume .skill span {
+                float: left;
+                width: 100px;
+            }
+
+            #resume .skill .b {
+                float: left;
+                width: 70%;
+                margin-left: 10px;
+                background: rgba(141,149,167,.2);
+            }
+
+
+            #resume .skills .b .eighty {
+                height: calc(2em);
+                background: #2D7FB9;
+            }
+
+
+            #resume .paper-clip {
+                width: 60px;
+                height: 85px;
+                background: url('https://lh5.googleusercontent.com/-_VvJpGXP9N0/UwdDY7l-CQI/AAAAAAAABTI/xXPDe4i5lbQ/s330/paper-clip.png') repeat scroll 0% 0% transparent;
+                position: absolute;
+                top: -14px;
+                right: -13px;
+            }
+
+        .profilepic {
+            width: 100%;
+        }
+
+        @media screen and (max-width: 860px) {
+
+            #resume {
+                width: 620px;
+            }
+
+
+
+                #resume.left-column {
+                    padding-left: 5px;
+                    
+                }
+
+                #resume .right-column {
+                    padding-left: 0;
+                    width: 270px;
+                }
+
+                    #resume .right-column .substrate {
+                        width: 230px;
+                    }
+
+
+
+                #resume .substrate {
+                    margin-bottom: 20px;
+                }
+
+
+                #resume .time-period-left-blue {
+                    position: relative;
+                    float: left;
+                    width: 50px;
+                    font-weight: 600;
+                }
+        }
+         @media screen and (max-width: 620px) {
+
+            #resume {
+                width: 320px;
+            }
+
+
+
+                #resume.left-column {
+                  float: none;
+		margin: 20px 20px 0;
+		padding: 0 0 0 5px;
+
+                }
+
+                #resume .right-column {
+                
+		margin: 0 25px 0;
+		padding: 10;
+
+                }
+
+                    #resume .right-column .substrate {
+                        width:220px;
+                    }
+
+
+
+                #resume .substrate {
+                    margin-bottom: 20px;
+                }
+
+
+                #resume .time-period-left-blue {
+                    position: relative;
+                    float: left;
+                    width: 50px;
+                    font-weight: 600;
+                }
+        }
+    </style>
+</head>
+<body>
+    
+     <!-- navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">Easy<em id="letter">N</em>otes</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mx-5 mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a   class="nav-link active" aria-current="page" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " aria-current="page" href="#">Trash</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/about">About </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/contact">Contact Us</a>
+          </li>
+        </ul>
+        <form class="d-flex">
+          <input class="form-control me-2" type="search"  id = "searchTxt"placeholder="Search" aria-label="Search" />
+          <button class="btn btn-outline-success" type="submit">
+            Search
+          </button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <!-- navbar ends -->
+
+<div id="resume">
+    <div class="fill-blue">
+        CAREER
+    </div>
+
+    <div class="left-column">
+        <div class="substrate">
+            <h2>My Profile</h2>
+            <img class="profilepic" src="../static/images/p1.png" alt="abhaymakadia" />
+            <ul class="main-info-list">
+                <li>Name<span>Roshni Thakor</span><div class="floatlimit">
+                </div>
+                </li>
+                <li>Born<span>06 January 2000</span><div class="floatlimit">
+                </div>
+                </li>
+                <li>Address<span>India - Gujarat - Mehsana</span><div class="floatlimit">
+                </div>
+                </li>
+                <li>Email<span>roshnithakor77@gmail.com</span><div class="floatlimit">
+                </div>
+                </li>
+            </ul>
+            <div class="paper-clip">
+            </div>
+        </div>
+        <div class="substrate">
+            <h2>Career</h2>
+            <div class="left-blue">
+                <div class="time-period-left-blue">
+                </div>
+                <h3>
+                    <span class="time-period-right-blue">2013 - Now</span></h3>
+                <h4>Work</h4>
+                <p>
+                   I am turning at one Software Company in 2013 as Asp.net Developer.
+                </p>
+                <div class="time-period-left-blue">
+                </div>
+                <h3>
+                    <span class="time-period-right-blue">2010 - 2013</span></h3>
+                <h4>M.C.A.</h4>
+                <p>
+                    Learn  CSS, HTML, Javascript
+                </p>
+                <div class="time-period-left-blue">
+                </div>
+                <h3>
+                    <span class="time-period-right-blue">2007 - 2010</span></h3>
+                <h4>B.C.A</h4>
+                <p>
+                    I have Completed My Bachelors in Computer Application from Rajkot.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="right-column">
+
+        <div class="substrate gradient-blue font-blue">
+            <h2>About Me</h2>
+            <h3>Hay, I'm Roshni Thakor. . .</h3>
+            <div class="p">
+                A 24 year old Indian blogger, Developer, illustrator and a lover of Designs and structure of coding. I took up a Masters in Computer Application and soon after earning my degree, I worked professionally as a .net developer Developer.
+
+
+
+I m Beginner. we all are beginners at one point, so Learn as much as you can. I blogged about anything which can be coded. I write what i learn. I love researching, discovering new things, playing around with codes and Designs, just to see what happens. So I learned lots of things about design. by Profession i m not designer but I want to be.
+            </div>
+        </div>
+
+        <div class="substrate">
+            <h2>Skill I</h2>
+            <h3>Web Development</h3>
+            <ul class="skills">
+                <li class="skill"><span>Asp.net C#</span>
+                    <div class="b">
+                        <span class="eighty" style="width: 90%"></span>
+                    </div>
+                </li>
+                <li class="skill"><span>HTML</span>
+                    <div class="b">
+                        <span class="eighty" style="width: 70%"></span>
+                    </div>
+                </li>
+                <li class="skill"><span>CSS</span>
+                    <div class="b">
+                        <span class="eighty" style="width: 60%"></span>
+                    </div>
+                </li>
+                <li class="skill"><span>JavaScript</span>
+                    <div class="b">
+                        <span class="eighty" style="width: 50%"></span>
+                    </div>
+                </li>
+                <li class="skill"><span>Jquery</span>
+                    <div class="b">
+                        <span class="eighty" style="width: 30%"></span>
+                    </div>
+                </li>
+            </ul>
+            <div class="paper-clip">
+            </div>
+        </div>
+
+
+
+    </div>
+
+    <div class="floatlimit">
+    </div>
+
+</div>
+
+
+<script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+</body>
+</html>

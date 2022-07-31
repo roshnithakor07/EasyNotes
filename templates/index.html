@@ -1,0 +1,195 @@
+{% extends 'base.html' %}
+{% block title %} Home{% endblock title %}
+  {% block body %}
+        
+<!-- <div class="container my-3">
+  <h2>Add a Todo</h2>
+    <form action="/" method="POST">
+        <div class="mb-3">
+          <label for="title" class="form-label">Todo Title</label>
+          <input type="text" required class="form-control" name = 'title' id="title" aria-describedby="emailHelp">
+        
+        </div>
+        <div class="mb-3">
+          <label for="desc"  class="form-label">Todo Description</label>
+          <input type="text" required  class="form-control" id="desc" name="desc">
+        </div>
+        
+        <button type="submit" class="btn btn-dark">Submit</button>
+      </form>
+</div> -->
+
+
+<div class="container my-4 todo ">
+  <h2 id = "todo">Add a Note</h2>
+    <form  action="/" method="POST" id="form" >
+          <div class="mb-3">
+            <label for="title" class="form-label">Note Title</label>
+            <input type="text" class="form-control" name="title" id="title" placeholder="">
+          </div>
+          <div class="mb-3">
+            <label for="desc" class="form-label">Note Description</label>
+            <textarea class="form-control" name="desc" id="desc" rows="3"></textarea>
+          </div>
+          <!-- <button type="submit" id="btn" class="btn btn-dark my-2">Submit</button> -->
+          <button type="submit"  id="btn" class="btn btn-outline-success my-2">Submit</button>
+      </form>
+      <h2 class="my-4" id = "todo">Your Notes</h2>
+</div>
+
+<div class="container">
+  <div class="alert alert-success" id="successMsg" role="alert" style="display: none"></div>
+    <div class="alert alert-warning" id="error" role="alert" style="display: none"></div>
+    <div class="alert alert-danger" id="errorMsg" role="alert" style="display: none"></div>
+
+</div>
+
+
+  <!-- <div class="bg-danger w-25" id="error"></div>
+  <div class="bg-success w-25" id="success"></div> -->
+
+  
+
+<a href=""></a>
+  <div class="container" id="table-data"></div>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+
+
+    <script>
+      $(document).ready(function () {
+       
+      
+        function loadData() {
+          $.ajax({
+            type: "POST",
+            url: "/show",
+          }) // end ajax call
+  
+            .done(function (data) {
+              if(data.count == 0){
+                  $("#table-data").hide()
+                  $("#error").html('Add Some Notes').slideDown();
+                  $("#successMsg").html("Note Added Successfully").slideDown().hide()
+              }else{
+                $("#table-data").html(data.output);
+              }
+              
+            }); // inside form submit function
+
+         
+         
+   
+            
+        } // end load function
+  
+        loadData();
+  
+        $("#btn").on("click", function (e) {
+
+
+          e.preventDefault();
+  
+          let title = $("#title").val();
+          let desc = $("#desc").val();
+  
+          if (title == "" || desc == "") {
+            $("#errorMsg").html("all fields are required").slideDown();
+            $("#successMsg").slideUp();
+          } else {
+            $.ajax({
+              url: "/insert",
+              type: "POST",
+              data: {
+                title: title,
+                desc: desc,
+              },
+            }) //end ajax
+  
+              .done(function (data) {
+  
+                if (data == " ") {
+                  $("#table-data").show()
+                  loadData();
+                  $("#form").trigger("reset");
+                  $("#successMsg").html("Note Added Successfully").slideDown()
+                  window.setTimeout(function(){
+                    $("#successMsg").html("Note Added Successfully").slideUp()
+
+                  },1000)
+                  $("#error").slideUp();
+                  $("#errorMsg").slideUp();
+              
+  
+                } else {
+                  $("#errorMsg").html("can't Save Note").slideDown();
+                  $("#successMsg").slideUp();
+                }
+  
+               
+              }); // end .done function
+          } // end else
+        }); // end btn
+   
+         // delete using ajax
+
+      $(document).on("click", ".delete-btn", function (e) {
+        if (confirm("do you want to delete? ")) {
+          var sno = $(this).data("id");
+          let no = '#' + sno;
+         
+        
+        
+          $.ajax({
+            url: "/delete",
+            type: "delete",
+            data: { id: sno },
+          }) // ajax ends
+
+            .done(function (data) {
+              
+              if (data) {
+                sno = Number(data);
+                
+                // $('#card').closest("#card").fadeOut();
+                $(no).fadeOut();
+               
+                if(sno == 0 ){
+                  $("#table-data").hide()
+                  $("#error").html('Add Some Notes').slideDown();
+                  $("#successMsg").html("Data Inserted Successfully").slideDown().hide()
+
+                }
+
+              } else {
+                $("#successMsg").html("can't delete records").slideDown();
+                $("#errorMsg").slideUp();
+              }
+            }); // .done fun ends
+        } // if confirm end
+      }); // .delete document end
+
+       
+
+      }); //end document
+    </script>
+
+
+
+
+
+
+    {% endblock body %}
