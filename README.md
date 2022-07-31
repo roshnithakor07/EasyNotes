@@ -38,5 +38,21 @@ The four major tasks that we can perform in a EasyNotes are:
 
 ## EasyNotes Website Screenshorts
 
-![My animated logo](static/images/p1.png)
+# Home Page
+![home page](/static/website-images/home.png)
+
+# Add Note
+![home page](/static/website-images/addnote.png)
+
+# Footer 
+![home page](/static/website-images/footer.png)
+
+# Update Note 
+![home page](/static/website-images/update.png)
+
+# About Page
+![home page](/static/website-images/about.png)
+
+# Contact us page
+![home page](/static/website-images/contact.png)
 
