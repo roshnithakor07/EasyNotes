@@ -36,4 +36,7 @@ The four major tasks that we can perform in a EasyNotes are:
   
 - Easy to use
 
+## EasyNotes Website Screenshorts
+
+![My animated logo](static/images/p1.png)
 
